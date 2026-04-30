@@ -36,7 +36,12 @@ public class Main {
             System.out.println("long title test failed as expected: ");
             System.out.println(e.getMessage());
         }
-        
+       
+        String testFilePath = FileUtils.buildNoteFilePath("test.note");
+
+        FileUtils.writeFile(testFilePath, "Hello, this is my first note!");
+
+        System.out.println("File written to: " + testFilePath);
     }
 
 }
