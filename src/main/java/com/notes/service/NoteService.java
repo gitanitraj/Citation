@@ -3,6 +3,7 @@ package com.notes.service;
 import com.notes.model.Note;
 import com.notes.utils.FileUtils;
 import com.notes.utils.NoteFormatter;
+import java.io.File;
 
 public class NoteService {
 
@@ -20,6 +21,28 @@ public class NoteService {
 
     System.out.println("Note created at: " + filePath);
 
+    }
+
+    public void listNotes() {
+
+    String notesPath = FileUtils.getAbsolutePathToNotesHome() + "/notes";
+
+    File folder = new File(notesPath);
+
+    File[] files = folder.listFiles();
+
+    if (files == null || files.length == 0) {
+        System.out.println("No notes found.");
+        return;
+    }
+
+    System.out.println("=== NOTES ===");
+
+    for (File file : files) {
+        if (file.isFile()) {
+            System.out.println(file.getName());
+            }
+        }
     }
 
 }
