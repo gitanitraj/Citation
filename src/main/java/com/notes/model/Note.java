@@ -54,4 +54,24 @@ public class Note {
 
         return true;
     }
+
+    public String getContent() {
+        return content;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public LocalDateTime getCreatedTimestamp() {
+        return createdTimestamp;
+    }
+
+    public LocalDateTime getModifiedTimestamp() {
+        return modifiedTimestamp;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
 }
