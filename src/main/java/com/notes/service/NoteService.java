@@ -13,7 +13,7 @@ public class NoteService {
     String formatted = NoteFormatter.formatNote(note);
 
     // Build full file path inside ~/.notes/notes/
-    String filePath = FileUtils.buildNoteFilePath(NOTES_FOLDER + "/" + filename);
+    String filePath = FileUtils.buildNoteFilePath(filename);
 
     // Write file
     FileUtils.writeFile(filePath, formatted);
