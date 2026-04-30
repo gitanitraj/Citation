@@ -20,6 +20,12 @@ public class Main {
         
         System.out.println("Valid note test:");
         System.out.println(Note.isValidNote(goodNote));
+
+        Note badNote1 = new Note("", "This content");
+
+        System.out.println("Empty title test:");
+        System.out.println(Note.isValidNote(badNote1));
         
     }
+
 }
