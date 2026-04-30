@@ -25,6 +25,17 @@ public class Main {
 
         System.out.println("Empty title test:");
         System.out.println(Note.isValidNote(badNote1));
+
+        String longTitle = "A".repeat(201);
+
+        try {
+            System.out.println("Long title test:");
+            Note.validateTitle(longTitle);
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("long title test failed as expected: ");
+            System.out.println(e.getMessage());
+        }
         
     }
 
