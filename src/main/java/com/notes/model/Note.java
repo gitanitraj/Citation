@@ -63,6 +63,10 @@ public class Note {
         return author;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public LocalDateTime getCreatedTimestamp() {
         return createdTimestamp;
     }

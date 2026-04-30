@@ -3,6 +3,7 @@ package com.notes;
 import com.notes.config.Config;
 import com.notes.model.Note;
 import com.notes.utils.FileUtils;
+import com.notes.utils.NoteFormatter;
 
 public class Main {
     public static void main(String[] args) {
@@ -47,6 +48,13 @@ public class Main {
 
         System.out.println("File contents:");
         System.out.println(fileContent);
+
+        Note note = new Note("Test Note", "This is a formatted note.");
+
+        String formatted = NoteFormatter.formatNote(note);
+
+        System.out.println("Formatted note:");
+        System.out.println(formatted);
     }
 
 }
