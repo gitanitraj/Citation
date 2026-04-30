@@ -42,6 +42,11 @@ public class Main {
         FileUtils.writeFile(testFilePath, "Hello, this is my first note!");
 
         System.out.println("File written to: " + testFilePath);
+
+        String fileContent = FileUtils.readFile(testFilePath);
+
+        System.out.println("File contents:");
+        System.out.println(fileContent);
     }
 
 }

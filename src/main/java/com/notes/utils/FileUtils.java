@@ -1,6 +1,8 @@
 package com.notes.utils;
 
 import com.notes.config.Config;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -41,5 +43,20 @@ public class FileUtils {
         } catch (IOException e) {
             System.out.println("Error writing file: " + e.getMessage());
         }
+    }
+
+    public static String readFile(String filePath) {
+        StringBuilder content = new StringBuilder();
+    
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))){
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+        return content.toString();
     }
 }
