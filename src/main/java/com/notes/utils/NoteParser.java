@@ -5,7 +5,17 @@ import com.notes.model.Note;
 public class NoteParser {
 
     public static Note parse(String fileContent) {
-        String[] parts = fileContent.split("---");
+
+        System.out.println("RAW FILE CONTENT:");
+        System.out.println(fileContent);
+
+        String cleaned = fileContent.trim();
+
+        String[] parts = cleaned.split("---");
+
+        if (parts.length < 3) {
+            throw new IllegalArgumentException("Invalid note format");
+        }
 
         String header = parts[1].trim();
         String body = parts[2].trim();

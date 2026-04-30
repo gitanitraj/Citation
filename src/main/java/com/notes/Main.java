@@ -45,27 +45,39 @@ public class Main {
 
         System.out.println("File written to: " + testFilePath);
 
-        String fileContent = FileUtils.readFile(testFilePath);
+        String fileContent = FileUtils.readFile(filePath);
 
         System.out.println("File contents:");
         System.out.println(fileContent);
 
         Note note = new Note("Test Note", "This is a formatted note.");
 
+        //Parsing: WRITE formatted note to file//
+        
         String formatted = NoteFormatter.formatNote(note);
 
-        System.out.println("Formatted note:");
-        System.out.println(formatted);
+        String formattedFilePath = FileUtils.buildNoteFilePath("formatted-note.note");
+
+        FileUtils.writeFile(formattedFilePath, formatted);
+
+        System.out.println("Formatted note saved to: " + formattedFilePath);
+
+        //READ BACK CORRECT FILE//
     
-    String savedContent = FileUtils.readFile(filePath);
+        String savedContent = FileUtils.readFile(formattedFilePath);
 
-    Note parsedNote = NoteParser.parse(savedContent);
+        System.out.println("Saved file contents:");
+        System.out.println(savedContent);
 
-    System.out.println("Parsed note title:");
-    System.out.println(parsedNote.getTitle());
+        //PARSE IT//
 
-    System.out.println("Parsed note content:");
-    System.out.println(parsedNote.getContent());
+        Note parsedNote = NoteParser.parse(savedContent);
+
+        System.out.println("Parsed note title:");
+        System.out.println(parsedNote.getTitle());
+
+        System.out.println("Parsed note content:");
+        System.out.println(parsedNote.getContent());
     }
 
 }
