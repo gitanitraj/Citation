@@ -40,6 +40,8 @@ public class Config {
             } else {
                 System.out.println("Failed to create directory: " + path);
             }
+        } else {
+            System.out.println("Directory already exits: " + path);
         }
 
         return path;
