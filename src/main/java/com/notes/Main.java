@@ -4,6 +4,7 @@ import com.notes.config.Config;
 import com.notes.model.Note;
 import com.notes.utils.FileUtils;
 import com.notes.utils.NoteFormatter;
+import com.notes.utils.NoteParser;
 
 public class Main {
     public static void main(String[] args) {
@@ -55,6 +56,16 @@ public class Main {
 
         System.out.println("Formatted note:");
         System.out.println(formatted);
+    
+    String savedContent = FileUtils.readFile(filePath);
+
+    Note parsedNote = NoteParser.parse(savedContent);
+
+    System.out.println("Parsed note title:");
+    System.out.println(parsedNote.getTitle());
+
+    System.out.println("Parsed note content:");
+    System.out.println(parsedNote.getContent());
     }
 
 }
