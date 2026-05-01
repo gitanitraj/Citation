@@ -71,4 +71,39 @@ public class NoteService {
         }
     }
 
+    public void searchNotes(String query) {
+        String notesPath = FileUtils.getAbsolutePathToNotesHome();
+        File folder = new File(notesPath);
+
+        File[] files = folder.listFiles();
+
+        if (files == null || files.length == 0) {
+            System.out.println("No notes found.");
+            return;
+        }
+
+        System.out.println("=== SEARCH RESULTS ===");
+        for (File file : files) {
+            if (file.isFile() && file.getName().endsWith(".note")) {
+                String content = FileUtils.readFile(file.getAbsolutePath());
+
+                try {
+                    Note note = NoteParser.parse(content);
+
+                    //case insensitive search
+                    String lowerQuery = query.toLowerCase();
+
+                    if (note.getTitle().toLowerCase().contains(lowerQuery) ||
+                        note.getContent().toLowerCase().contains(lowerQuery)) {
+
+                            System.out.println("- " + file.getName());
+                    }
+                
+                } catch (Exception e) {
+                    System.out.println("Skipping invalid note: " + file.getName());
+                }
+            }
+        }
+    }
+
 }
