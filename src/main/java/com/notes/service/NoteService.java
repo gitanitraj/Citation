@@ -3,11 +3,10 @@ package com.notes.service;
 import com.notes.model.Note;
 import com.notes.utils.FileUtils;
 import com.notes.utils.NoteFormatter;
+import com.notes.utils.NoteParser;
 import java.io.File;
 
 public class NoteService {
-
-    private static final String NOTES_FOLDER = "notes";
 
     public void createNote(Note note, String filename) {
         // Format note into YAML text
@@ -43,7 +42,17 @@ public class NoteService {
         System.out.println(file.getName());
         }
     }
-    
+
+    }
+
+    public Note readNote(String filename) {
+        String filePath = FileUtils.buildNoteFilePath(filename);
+
+        String content = FileUtils.readFile(filePath);
+
+        Note note = NoteParser.parse(content);
+
+        return note;
     }
 
 }

@@ -87,6 +87,15 @@ public class Main {
         service.createNote(newNote, "service-note.note");
 
         service.listNotes();
+
+        Note readNote = service.readNote("service-note.note");
+
+        System.out.println("=== READ NOTE ===");
+        System.out.println("Title: " + readNote.getTitle());
+        System.out.println("Content: " + readNote.getContent());
+
+
     }
+
 
 }
