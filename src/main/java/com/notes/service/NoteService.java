@@ -55,4 +55,24 @@ public class NoteService {
         return note;
     }
 
+    public void deleteNote(String filename) {
+        // Build file path
+        String filePath = FileUtils.buildNoteFilePth(filename);
+
+        File file = new File(filePath);
+
+        // Check if file exists
+        if (!file.exists()) {
+            System.out.println("Note not found: " + filename);
+            return;
+        }
+
+        // Attempt delete
+        boolean deleted = file.delete();
+
+        if (deleted) {
+            System.out.println("Note deleted: " + filename);
+        }
+    }
+
 }
