@@ -1,6 +1,4 @@
-package com.notes.utils;
-
-import com.notes.model.Note;
+package com.notes;
 
 public class NoteParser {
 

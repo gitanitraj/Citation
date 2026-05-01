@@ -1,9 +1,5 @@
-package com.notes.service;
+package com.notes;
 
-import com.notes.model.Note;
-import com.notes.utils.FileUtils;
-import com.notes.utils.NoteFormatter;
-import com.notes.utils.NoteParser;
 import java.io.File;
 
 public class NoteService {
