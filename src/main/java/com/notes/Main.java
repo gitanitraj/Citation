@@ -94,6 +94,10 @@ public class Main {
         System.out.println("Title: " + readNote.getTitle());
         System.out.println("Content: " + readNote.getContent());
 
+        service.deleteNote("service-note.note");
+
+        // verify is gone
+        service.listNotes();
 
     }
 

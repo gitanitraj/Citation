@@ -57,7 +57,7 @@ public class NoteService {
 
     public void deleteNote(String filename) {
         // Build file path
-        String filePath = FileUtils.buildNoteFilePth(filename);
+        String filePath = FileUtils.buildNoteFilePath(filename);
 
         File file = new File(filePath);
 
