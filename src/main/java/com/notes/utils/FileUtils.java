@@ -1,6 +1,5 @@
-package com.notes.utils;
+package com.notes;
 
-import com.notes.config.Config;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;

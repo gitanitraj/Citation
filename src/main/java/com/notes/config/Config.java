@@ -1,4 +1,4 @@
-package com.notes.config;
+package com.notes;
 
 import java.io.File;
 
