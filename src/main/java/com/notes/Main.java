@@ -82,11 +82,62 @@ public class Main {
 
         NoteService service = new NoteService();
 
-        Note newNote = new Note("Service Note", "This note was created via service.");
+        // IF NO COMMAND PROVIDED
+        if (args.length == 0) {
+            System.out.println("Usage: notes <command>");
+            return;
+        }
 
-        service.createNote(newNote, "service-note.note");
+        String command = args[0];
 
-        service.listNotes();
+        switch (command) {
+            case "create":
+                Note cliNote = new Note("CLI Note", "Created from CLI");
+                service.createNote(cliNote, "cli-note.note");
+                break;
+            
+            case "list":
+                service.listNotes();
+                break;
+
+            case "read":
+                if (args.length < 2) {
+                    System.out.println("Usage: notes read <filename>");
+                    return;
+                }
+                service.readNote(args[1]);
+                break;
+
+            case "delete":
+                if (args.length < 2) {
+                    System.out.println("Usage: notes delete <filename>");
+                    return;
+                }
+                service.deleteNote(args[1]);
+                break;
+
+            case "search":
+                if (args.length < 2) {
+                    System.out.println("Usage: notes search <query>");
+                    return;
+                }
+                service.searchNotes(args[1]);
+                break;
+
+            default:
+                System.out.println("Unknown command: " + command);
+                break;
+        }
+
+        //Note newNote = new Note("Service Note", "This note was created via service.");
+
+        // CREATE NOTE
+
+        //service.createNote(newNote, "service-note.note");
+
+        // LIST NOTE
+
+        //service.listNotes();
 
         Note readNote = service.readNote("service-note.note");
 
@@ -98,6 +149,8 @@ public class Main {
 
         // verify is gone
         service.listNotes();
+
+        //service.searchNotes("formatted");
 
     }
 
