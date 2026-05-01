@@ -25,7 +25,7 @@ public class NoteService {
 
     public void listNotes() {
 
-    String notesPath = FileUtils.getAbsolutePathToNotesHome() + "/notes";
+    String notesPath = FileUtils.getAbsolutePathToNotesHome();
 
     File folder = new File(notesPath);
 
@@ -39,10 +39,11 @@ public class NoteService {
     System.out.println("=== NOTES ===");
 
     for (File file : files) {
-        if (file.isFile()) {
-            System.out.println(file.getName());
-            }
+        if (file.isFile() && file.getName().endsWith(".note")) {
+        System.out.println(file.getName());
         }
+    }
+    
     }
 
 }

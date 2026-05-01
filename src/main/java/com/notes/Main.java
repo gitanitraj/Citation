@@ -85,6 +85,8 @@ public class Main {
         Note newNote = new Note("Service Note", "This note was created via service.");
 
         service.createNote(newNote, "service-note.note");
+
+        service.listNotes();
     }
 
 }
