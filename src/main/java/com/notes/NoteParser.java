@@ -4,8 +4,8 @@ public class NoteParser {
 
     public static Note parse(String fileContent) {
 
-        System.out.println("RAW FILE CONTENT:");
-        System.out.println(fileContent);
+        //System.out.println("RAW FILE CONTENT:");
+        //System.out.println(fileContent);
 
         String cleaned = fileContent.trim();
 
