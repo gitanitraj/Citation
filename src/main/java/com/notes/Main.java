@@ -13,6 +13,7 @@ public class Main {
         String command = args[0];
 
         switch (command) {
+            
             case "create":
                 Note cliNote = new Note("CLI Note", "Created from CLI");
                 service.createNote(cliNote, "cli-note.note");
