@@ -106,4 +106,20 @@ public class NoteService {
         }
     }
 
+    public void createEmptyNote() {
+    System.out.println("Create note (not implemented yet)");
+    }
+
+    public void editNote(String filename) {
+    System.out.println("Edit note (not implemented yet): " + filename);
+    }
+
+    public void listNotesByTag(String tag) {
+    System.out.println("List notes by tag (not implemented yet): " + tag);
+    }
+
+    public void showStats() {
+    System.out.println("Stats (not implemented yet)");
+    }
+
 }
